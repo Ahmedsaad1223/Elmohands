@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مركز المهندس لصيانة المواتير</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* تنسيقات عامة */
+        body {
+            font-family: 'Cairo', sans-serif; /* استخدام خط القاهرة من جوجل */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+            text-align: right; /* محاذاة النص لليمين للغة العربية */
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px 0;
+        }
+
+        /* الهيدر */
+        header {
+            background: #0056b3; /* لون أزرق جذاب */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        header .logo {
+            max-width: 350px;
+            margin-bottom: 10px;
+            border-radius: 15%; /* لجعل الشعار دائريًا إذا كان مربعًا */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        /* الأقسام العامة */
+        section {
+            padding: 40px 0;
+            margin-bottom: 20px;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #00000;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2em;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: #0056b3;
+            border-radius: 2px;
+        }
+
+        /* قسم من نحن (البطل) */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.8)), url('hero-bg.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #ffc107; /* لون أصفر جذاب */
+            color: #333;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .button:hover {
+            background: #e0a800;
+        }
+
+        /* قسم الخدمات */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .service-item {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-item h3 {
+            color: #0056b3;
+            margin-top: 0;
+            font-size: 1.4em;
+        }
+
+        /* قسم التواصل */
+        #contact ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        #contact ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #contact ul li i {
+            margin-left: 10px; /* لتباعد الأيقونة عن النص في اللغة العربية */
+            color: #0056b3;
+            font-size: 1.3em;
+        }
+
+        #contact ul li a {
+            color: #0056b3;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            direction: ltr; /* Ensure the link text reads left-to-right */
+        }
+
+        #contact ul li a:hover {
+            color: #003f8c;
+        }
+
+        .map-embed {
+            text-align: center;
+        }
+
+        .map-embed iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* الفوتر */
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* تصميم للموبايل والأجهزة الصغيرة */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .hero {
+                padding: 60px 0;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr; /* عرض عمود واحد على الموبايل */
+            }
+
+            .map-embed iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="/storage/emulated/0/index/11.jpg" alt="شعار مركز المهندس " class="logo">
+            <h1>مركز المهندس لصيانة المواتير</h1>
+            <p>خبراء في صيانة وإصلاح جميع أنواع المواتير</p>
+            <p>والأجهزة المنزلية</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="hero">
+            <div class="container">
+                <h2>من نحن</h2>
+                <p>نحن **مركز المهندس**، رواد في مجال صيانة وإصلاح المواتير بجميع أنواعها. بخبرة تمتد لسنوات، نقدم حلولًا متكاملة تضمن أعلى مستويات الأداء والمتانة لمعداتك. فريقنا من الفنيين المدربين على أعلى مستوى يستخدم أحدث التقنيات لتقديم خدمة سريعة، دقيقة، وموثوقة.</p>
+                <a href="#services" class="button">اكتشف خدماتنا</a>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2>خدماتنا</h2>
+                <div class="service-grid">
+                    <div class="service-item">
+                        <h3>فحص وصيانة دورية</h3>
+                        <p>نقدم فحوصات شاملة وصيانة وقائية لإطالة عمر المواتير وتقليل الأعطال المفاجئة.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>إصلاح الأعطال</h3>
+                        <p>تحديد سريع للأعطال وإصلاح احترافي لضمان عودة المواتير للعمل بكفاءة.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>تغيير قطع الغيار</h3>
+                        <p>استخدام قطع غيار أصلية وعالية الجودة لضمان أفضل أداء.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>استشارات فنية</h3>
+                        <p>نقدم استشارات متخصصة لمساعدتك في اتخاذ أفضل القرارات المتعلقة بمواتيرك.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2>تواصل معنا</h2>
+                <p>يمكنك التواصل معنا عبر الأرقام التالية أو زيارة مركزنا:</p>
+                <ul>
+                    <li><i class="fas fa-phone"></i> الهاتف: <a href="tel:+201153439862">01153439862</a></li>
+                    <li><i class="fab fa-whatsapp"></i> واتساب: <a href="https://wa.me/201153439862" target="_blank">01153439862</a></li>
+                    <li><i class="fab fa-facebook"></i> فيسبوك: <a href="YOUR_FACEBOOK_PAGE_URL" target="_blank">صفحتنا على فيسبوك</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> العنوان: أرض اللواء -المهندسين -الجيزة</li>
+                    <li><i class="fas fa-clock"></i> ساعات العمل: السبت - الخميس: 9:00 صباحًا - 10:00 مساءً</li>
+                </ul>
+                <div class="map-embed">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.6406981845187!2d31.189578275567087!3d30.04561077491763!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145846f3a6a9b9a7%3A0x6b7b2b0a1d6f4f2a!2z2YPZhNin2Kog2KfZhNmD2YjZh9iq2Kog2KjYudmI2Kgg2YHYsdmF2Kkg2KfZhNmB2YjZhiDZhdix2YXYpyDXhtin2YjYp9iqINmI2KfZhNiqINin2YTZhdix2YrYp9io!5e0!3m2!1sen!2seg!4v1718529230576!5m2!1sen!2seg" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 مركز المهندس . جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    </body>
+</html>
